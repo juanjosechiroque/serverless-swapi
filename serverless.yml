@@ -1,0 +1,17 @@
+service: serverless-swapi
+
+frameworkVersion: '2'
+
+provider:
+  name: aws
+  runtime: nodejs12.x
+  stage: dev
+  region: us-east-1
+  
+functions:  
+  getFilms:
+    handler: src/films/list.getFilms
+    events:
+      - http:
+          path: api/v1/films
+          method: get       
