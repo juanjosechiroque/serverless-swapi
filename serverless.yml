@@ -7,6 +7,16 @@ provider:
   runtime: nodejs12.x
   stage: dev
   region: us-east-1
+  iamRoleStatements:
+    - Effect: "Allow"
+      Action:
+       - dynamodb:Query
+       - dynamodb:Scan
+       - dynamodb:GetItem
+       - dynamodb:PutItem
+       - dynamodb:UpdateItem
+       - dynamodb:DeleteItem
+      Resource: "*"
   
 functions:  
   getFilms:
@@ -14,4 +24,12 @@ functions:
     events:
       - http:
           path: api/v1/films
-          method: get       
+          method: get
+          
+  createPlanet:
+    handler: src/planets/create.createPlanet
+    events:
+      - http:
+          path: api/v1/planets
+          method: post
+          
