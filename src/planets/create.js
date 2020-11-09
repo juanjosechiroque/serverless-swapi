@@ -1,4 +1,4 @@
-const Responses = require("../../common/API_Responses");
+const Responses = require("../common/API_Responses");
 
 module.exports.createPlanet = async (event, context) => {
   

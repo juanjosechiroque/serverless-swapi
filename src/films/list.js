@@ -1,4 +1,4 @@
-const Responses = require("../../common/API_Responses");
+const Responses = require("../common/API_Responses");
 
 async function getMovies() {  
   const fetch = require("node-fetch");
