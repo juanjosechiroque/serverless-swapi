@@ -33,3 +33,10 @@ functions:
           path: api/v1/planets
           method: post
           
+  getPlanet:
+    handler: src/planets/get.getPlanet
+    events:
+      - http:
+          path: api/v1/planets/{id}
+          method: get
+          

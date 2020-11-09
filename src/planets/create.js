@@ -33,7 +33,7 @@ module.exports.createPlanet = async (event, context) => {
   try {
 
     var data = await db.put(params).promise();    
-    return Responses._200({message: "success" });
+    return Responses._200({message: "success", data: { id: id } });
 
   } catch(error) {
 
