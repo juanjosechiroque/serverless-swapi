@@ -19,14 +19,6 @@ module.exports.createPlanet = async (event, context) => {
   
   const id = new Date().valueOf();
   
-  //const cuerpo = event.pathParameters;
-  //console.log(event.body);
-  
-  
-  //console.log(body);
-  
-  //console.log(id);
-
   const params = {
     TableName: tableName,
     Item: {
@@ -40,18 +32,14 @@ module.exports.createPlanet = async (event, context) => {
   
   try {
 
-    var data = await db.put(params).promise();
-    //console.log(data);
-    
+    var data = await db.put(params).promise();    
     return Responses._200({message: "success" });
 
   } catch(error) {
 
-    console.log("error: " + error);
-    
-    return Responses._200({message: "error" });
+    console.log("error: " + error);    
+    return Responses._400({message: "error" });
 
   }
-  
   
 };
